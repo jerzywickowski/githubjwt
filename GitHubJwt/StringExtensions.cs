@@ -4,8 +4,8 @@ namespace GitHubJwt
 {
     internal static class StringExtensions
     {
-        const beginRsaPrivateKey = "-----BEGIN RSA PRIVATE KEY-----";
-        const endRsaPrivateKey = "-----END RSA PRIVATE KEY-----";
+        const string beginRsaPrivateKey = "-----BEGIN RSA PRIVATE KEY-----";
+        const string endRsaPrivateKey = "-----END RSA PRIVATE KEY-----";
         public static string HydrateRsaVariable(this string input)
         {
             StringBuilder stringBuilder = new StringBuilder();
