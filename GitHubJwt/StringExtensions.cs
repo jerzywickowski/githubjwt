@@ -4,12 +4,23 @@ namespace GitHubJwt
 {
     internal static class StringExtensions
     {
+        const beginRsaPrivateKey = "-----BEGIN RSA PRIVATE KEY-----";
+        const endRsaPrivateKey = "-----END RSA PRIVATE KEY-----";
         public static string HydrateRsaVariable(this string input)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("-----BEGIN RSA PRIVATE KEY-----");
+            if(!input.StartsWith(beginRsaPrivateKey))
+            {
+                stringBuilder.AppendLine(beginRsaPrivateKey);
+            }
+
             stringBuilder.AppendLine(input);
-            stringBuilder.AppendLine("-----END RSA PRIVATE KEY-----");
+
+            if(!input.EndsWith(endRsaPrivateKey))
+            {
+                stringBuilder.AppendLine(endRsaPrivateKey);
+            }
+
             return stringBuilder.ToString();
         }
     }
